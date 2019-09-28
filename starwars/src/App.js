@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+import Card from "./components/Card.js";
+
 const App = () => {
-  // Set Star Wars characters data to state
+  // Set the Star Wars characters data to state
   const [characters, setCharacters] = useState([]);
 
   // Get data of Star Wars characters from SWAPI
@@ -17,12 +19,13 @@ const App = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(characters);
-
   // App
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      <div>
+        <Card characters={characters} />
+      </div>
     </div>
   );
 };
